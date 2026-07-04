@@ -33,8 +33,9 @@ local function CreateESP(player)
         
         local highlight = Instance.new("Highlight")
         highlight.Name = "MM2_ESP"
-        highlight.FillOpacity = 0.5
-        highlight.OutlineOpacity = 0.2
+        -- Исправлено: используем корректные свойства Transparency вместо Opacity
+        highlight.FillTransparency = 0.5 
+        highlight.OutlineTransparency = 0.2
         highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
         highlight.Parent = character
         
@@ -70,7 +71,6 @@ local Window = Rayfield:CreateWindow({
    ShowText = "Rayfield", 
    Theme = "Default", 
 
-   -- Перевод клавиши в Enum для надежности (или можно оставить "g")
    ToggleUIKeybind = Enum.KeyCode.G, 
 
    DisableRayfieldPrompts = false,
@@ -78,7 +78,7 @@ local Window = Rayfield:CreateWindow({
 
    ConfigurationSaving = {
       Enabled = true,
-      FolderName = "MM2_ESP_Hub", -- Обязательно укажи название папки, иначе сохранения могут не работать
+      FolderName = "MM2_ESP_Hub", 
       FileName = "BigHubConfig"
    },
 
@@ -93,10 +93,9 @@ local Window = Rayfield:CreateWindow({
       Title = "Система Ключей",
       Subtitle = "Вставьте Ключ",
       Note = "Ключ можно получить в нашем Discord/ТГ (пример)", 
-      FileName = "MM2_ESP_Key", -- Уникальное имя файла, чтобы не пересекаться с другими скриптами
+      FileName = "MM2_ESP_Key", 
       SaveKey = true, 
       GrabKeyFromSite = false, 
-      -- Список работающих ключей (включая никнейм игрока)
       Key = {"github", "SUMMER", "1488", "Кишлак", "Cupsize", LP.Name} 
    }
 })
